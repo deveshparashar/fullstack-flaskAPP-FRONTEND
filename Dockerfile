@@ -10,6 +10,12 @@ RUN rm -rf ./*
 # Copy the static files to the nginx directory
 COPY . .
 
+# removing default Nginx Config file
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy our nginx file in nginx conf.d folder
+COPY ./default.conf /etc/nginx/conf.d/
+
 
 # Expose port 80
 EXPOSE 80
